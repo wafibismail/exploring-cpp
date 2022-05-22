@@ -1,7 +1,7 @@
 ### Bookmark
 
 #### preliminary:
-Stopped at page 140 (156) i.e. at writing string applications<br>
+Stopped at page 146 (162) i.e. the strlib.h library<br>
 
 Skipped:
 - Exercises page 50(66) to 54(70)
