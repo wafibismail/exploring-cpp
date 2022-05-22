@@ -1,11 +1,13 @@
 ### Bookmark
 
 #### preliminary:
-Stopped at page 110 (126)<br>
+Stopped at page 140 (156) i.e. at writing string applications<br>
 
-Exercises skipped:
-- page 50(66) to 54(70)
+Skipped:
+- Exercises page 50(66) to 54(70)
   - points already clear, (but still good general programming exercises)
+- Exercises chapter 2
+- Graphics related exercise on chapter 2
 
 !!!!!:
 - reference parameters e.g. "& a" (in Quadratic.cpp)
