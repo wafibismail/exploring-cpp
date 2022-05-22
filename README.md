@@ -1,7 +1,7 @@
 ### Bookmark
 
 #### preliminary:
-Stopped at page 106 (122) i.e. in the middle of random.h's implementation<br>
+Stopped at page 110 (126)<br>
 
 Exercises skipped:
 - page 50(66) to 54(70)
