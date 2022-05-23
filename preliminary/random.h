@@ -4,7 +4,7 @@
  * This file exports functions for generating pseudorandom numbers.
  */
 
-#ifdef _random_h
+#ifndef _random_h
 #define _random_h
 
 /*
