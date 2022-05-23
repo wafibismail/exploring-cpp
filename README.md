@@ -1,7 +1,7 @@
 ### Bookmark
 
 #### preliminary:
-Stopped at page 165 (181) i.e. 4.2 Formatted input<br>
+Stopped at page 175 (191) i.e. start of page<br>
 
 Skipped:
 - Exercises in each chapter
