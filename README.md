@@ -1,13 +1,11 @@
 ### Bookmark
 
 #### preliminary:
-Stopped at page 146 (162) i.e. the strlib.h library<br>
+Stopped at page 165 (181) i.e. 4.2 Formatted input<br>
 
 Skipped:
-- Exercises page 50(66) to 54(70)
-  - points already clear, (but still good general programming exercises)
-- Exercises chapter 2
-- Graphics related exercise on chapter 2
+- Exercises in each chapter
+- Graphics related demos on chapter 2
 
 !!!!!:
 - reference parameters e.g. "& a" (in Quadratic.cpp)
