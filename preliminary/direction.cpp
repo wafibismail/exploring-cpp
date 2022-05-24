@@ -5,6 +5,7 @@
  */
 
 #include <string>
+#include <iostream>
 #include "direction.h"
 using namespace std;
 
@@ -42,4 +43,21 @@ string directionToString(Direction dir) {
         case WEST: return "WEST";
         default: return "???";
     }
+}
+
+/* Implementation of overloading operators */
+
+ostream & operator<<(ostream & os, Direction dir) {
+    return os << directionToString(dir);
+}
+
+Direction operator++(Direction & dir) {
+    dir = Direction(dir + 1);
+    return dir;
+}
+
+Direction operator++(Direction & dir, int) {
+    Direction old = dir;
+    dir = Direction(dir + 1);
+    return old;
 }

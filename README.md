@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Stopped at page 279 (295) i.e. adding operators to the Direction type <br>
+Stopped at page 283 (299) i.e. adopting the client perspective <br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -57,3 +57,15 @@ Skipped sections (and some notes) worth re-exploring:
       - friend bool operator==(Point pt1, Point pt2);
     - ...which is applicable to classes as well
       - friend class *name*;
+- author's approach to designing classes:
+  - 1) Think generally about how clients are likely to use the class
+    - Design it around their convenience (not the implementer's)
+  - 2) Determine (intuitively, generally) what information belongs in the private state of each object
+  - 3) Define a set of constructors
+    - and perhaps consider whether the constructors need to apply any restriction to ensure resulting objects' validity
+  - 4) Enumerate the operations that will become the public method
+    - i.e. specify and write the prototypes
+    - rememember the principles of unity, simplicity, sufficiency, generality, and stability
+  - 5) Code and test the implementation
+    - Once the interface is done, write the code that implements it
+    - Revisit the interface design if needed to ensure features perform to acceptable levels of efficiency

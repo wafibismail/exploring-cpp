@@ -9,6 +9,7 @@
 #define _direction_h
 
 #include <string>
+#include <iostream>
 
 /*
  * Type: Direction
@@ -39,5 +40,11 @@ Direction leftFrom(Direction dir);
 Direction rightFrom(Direction dir);
 
 std::string directionToString(Direction dir);
+
+/* Overloading operators */
+
+std::ostream & operator<<(std::ostream & os, Direction dir);
+Direction operator++(Direction & dir); //prefix ++
+Direction operator++(Direction & dir, int); //suffix ++
 
 #endif
