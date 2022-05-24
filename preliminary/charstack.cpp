@@ -79,3 +79,22 @@ char CharStack::peek() {
     if (isEmpty()) error("peek: Attempting to peek an empty stack");
     return array[count - 1];
 }
+
+/*
+ * Implementation notes: expandCapacity
+ * ------------------------------------
+ * This method doubles the capacity of the elements array whenever it runs
+ * out of space. To do so, the method must copy the pointer to the old
+ * array, allocate a new array with twice the capacity, copy the characters
+ * from the old array to the new one, and finally free the old storage.
+ */
+
+void CharStack::expandCapacity() {
+    char *oldArray = array;
+    capacity *= 2;
+    array = new char[capacity];
+    for (int i = 0; i < count; i++) {
+        array[i] = oldArray[i];
+    }
+    delete[] oldArray;
+}

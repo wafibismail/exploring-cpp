@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Stopped at page 535 (551) i.e. in the middle of writing CharStack implementation<br>
+Stopped at page 543 (559) i.e. Section 12.6 - Unit Testing<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -31,6 +31,7 @@ Skipped sections (and some notes) worth re-exploring:
     - recursive strategies
     - backtracking algorithms
     - algorithmic analysis
+- Try out stack-heap diagram drawing, Chapter 12.5, page 538 (554)
 
 !!!!! (some notes, concepts and terms):
 - reference parameters e.g. "& a" (in Quadratic.cpp)
@@ -104,3 +105,5 @@ Skipped sections (and some notes) worth re-exploring:
   - *"One way to ensure that there are no hidden costs is to limit the implementation so that it relies only on the most primitive operations supported by the language"*
     - example demonstrating this in CharStack implementation
       - primitive array used as opposed to some abstract class e.g. Vector
+- if stuck in debugging as far as memory allocation is concerned, consider drawing heap-stack diagrams
+  - refer to page 538 (554)
