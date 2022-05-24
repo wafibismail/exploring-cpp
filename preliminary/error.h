@@ -22,4 +22,4 @@
 
 void error(std::string msg);
 
-#endif;
+#endif

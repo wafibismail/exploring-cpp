@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Stopped at page 543 (559) i.e. Section 12.6 - Unit Testing<br>
+Stopped at page 546 (562) i.e. Section 12.7 - Copying objects<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -107,3 +107,9 @@ Skipped sections (and some notes) worth re-exploring:
       - primitive array used as opposed to some abstract class e.g. Vector
 - if stuck in debugging as far as memory allocation is concerned, consider drawing heap-stack diagrams
   - refer to page 538 (554)
+- unit testing: strategy of checking each class or interface separately in isolation from any other module
+  - can use &lt;cassert> library
+    - assert(*test*)
+      - as long as the test expression evaluates to true, the assert macro has no effect
+      - else an error message is generated
+  - refer to [CharStackUnitTest.cpp](https://github.com/wafibismail/exploring-cpp/preliminary/CharStackUnitTest.cpp))
