@@ -1,17 +1,23 @@
-### Bookmark
+# About
+This repo contains the relevant (for me) C++ related learning materials. <br>
+The notes here are for my own use, so may be unusable for other readers.
+
+### Sections
 
 #### preliminary:
-Stopped at page 261 (277) i.e. designing classes <br>
+[Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
+
+Stopped at page 279 (295) i.e. adding operators to the Direction type <br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
 - Graphics related demos on chapter 2
 - Vector class demos on chapter 5.1
   - ways of declaring vectors:
-    - Vector<type> vec;
-    - Vector<type> vec(size);
-    - Vector<type> vec = { x1, x2, x3 };
-    - Vector< Vector<type> > vec(size, Vector<type>(size));
+    - Vector&lt;type> vec;
+    - Vector&lt;type> vec(size);
+    - Vector&lt;type> vec = { x1, x2, x3 };
+    - Vector&lt; Vector&lt;type> > vec(size, Vector&lt;type>(size));
       - notice the required space separating the inner & outer angle brackets
 - Stack class demos on chapter 5.2
   - including RPN Calculator
@@ -28,7 +34,7 @@ Skipped sections (and some notes) worth re-exploring:
   - sufficient - must provide sufficient functionality to meet clients' needs
   - general - flexible as to be usable by many different clients; inclusion of functionality should not be based on percieved importance
   - stable - no breaking changes
-- parameterized classes a.k.a. templates: classes that include a base-type specification. E.g. Vector e.g. Vector<char>, Vector<int>, etc.
+- parameterized classes a.k.a. templates: classes that include a base-type specification. E.g. Vector e.g. Vector&lt;char>, Vector&lt;int>, etc.
 - bounds-checking: testing whether an index is valid
 - on declaration of primitive variables (without explicit initialization), the memory used to hold the variables still holds the value it has before the declaration
 - on declaration of classes, the case is different due to constructors being invoked, which leads to initializations.
@@ -38,3 +44,16 @@ Skipped sections (and some notes) worth re-exploring:
   - simplicity
   - flexibility
   - security
+- two ways of overloading binary operators in C++ for a newly defined class:
+  - method within the class
+    - left operand is the receiver object
+    - right operand is passed as a parameter
+      - bool operator==(Point pt);
+  - free function outside the class
+    - both operands are passed as parameters
+      - bool operator==(Point pt1, Point pt2);
+  - special note:
+    - access to private instance variables can be made legal for a particular function by declaring the function as a *friend*
+      - friend bool operator==(Point pt1, Point pt2);
+    - ...which is applicable to classes as well
+      - friend class *name*;
