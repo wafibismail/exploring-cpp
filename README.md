@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Stopped at page 283 (299) i.e. adopting the client perspective <br>
+Stopped at page 515 (531)<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -24,6 +24,13 @@ Skipped sections (and some notes) worth re-exploring:
 - Particular step in queue demo (CheckoutLine.cpp)
   - applying Queue class provided from the more convenient nonstandard library
 - Map, Set & Lexicon classes demos on chapter 5.4 & 5.5
+- Rational class interface & implementation codes on chapter 6.3, pg 288-291
+- Chapters 7 until 10
+  - programming concepts not specific to C++
+    - recursion
+    - recursive strategies
+    - backtracking algorithms
+    - algorithmic analysis
 
 !!!!! (some notes, concepts and terms):
 - reference parameters e.g. "& a" (in Quadratic.cpp)
@@ -69,3 +76,23 @@ Skipped sections (and some notes) worth re-exploring:
   - 5) Code and test the implementation
     - Once the interface is done, write the code that implements it
     - Revisit the interface design if needed to ensure features perform to acceptable levels of efficiency
+- When using a class as a client (as opposed to as an implementor), it would make sense to ignore the private section of a class, even though C++ requires that the private section be included in the interface
+- tokens: logical units of a string that may be larger than a single character
+- sometimes i.e. when some amount of internal state needs to be maintained, it may be appropriate to encapsulate the entire program inside a class (e.g. demo in [CheckoutLineClass.cpp](https://github.com/wafibismail/exploring-cpp/preliminary/CheckoutLineClass.cpp))
+  - in which case, the main program creates a variable of that class and invokes a method in that class to get the program running
+- C++ defines the data type char to be exactly one byte in size (ASCII)
+  - use the type wchar_t (wide characters) for programs that work with expanded charcter sets
+- in C++, the size of an object is the sum of the sizes of the instance variables it contains
+  - note though that compilers are allowed to add memory space to the underlying representations of an object as doing so sometimes allows for a more efficeint machine language code.
+    - e.g. the size of a Point object (with two int instance variables) must be at least eight bits, though it might be larger
+- sizeof:
+  - sizeof(int) returns the number of bytes required to store a value of type int
+  - sizeof x returns the number of bytes required to store the variable x
+- array
+  - in most cases, array size declarations should be specified as symbolic constants e.g.
+    - const int N_ELEMENTS = 10; // and use this in square brackets in the array's declaration
+  - selection: the process of identifying a particular element in an array
+  - number of elements = sizeof ARR / sizeof ARR[0];
+    - use this for statically declared arrays only
+    - for dynamic arrays, better to set size of array as the approximate maximum number of elements (allocated size) i.e. larger than needed - then use only part of it
+      - with this method, a separate int variable keeping track of the number of values that are in use (effective size)
