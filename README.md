@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Stopped at page 515 (531)<br>
+Stopped at page 535 (551) i.e. in the middle of writing CharStack implementation<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -96,3 +96,11 @@ Skipped sections (and some notes) worth re-exploring:
     - use this for statically declared arrays only
     - for dynamic arrays, better to set size of array as the approximate maximum number of elements (allocated size) i.e. larger than needed - then use only part of it
       - with this method, a separate int variable keeping track of the number of values that are in use (effective size)
+- freeing memory
+  - delete ip;
+  - delete[] array;
+  - *if it's a linked list, delete recursively*
+- on choosing an implementation strategy w/ regard to efficiency
+  - *"One way to ensure that there are no hidden costs is to limit the implementation so that it relies only on the most primitive operations supported by the language"*
+    - example demonstrating this in CharStack implementation
+      - primitive array used as opposed to some abstract class e.g. Vector
