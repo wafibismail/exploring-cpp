@@ -102,6 +102,179 @@ public:
 
     Stack(const Stack<ValueType> & src);
     Stack<ValueType> & operator=(const Stack<ValueType> & src);
+
+/* Private section */
+
+private:
+
+/*
+ * Implementation notes
+ * --------------------
+ * This version of the stack.h interface uses a linked list to store
+ * the elements of the stack. The top item is always at the front of
+ * the linked list and is therefore always accessible without searching.
+ * The instance variable count keeps track of the number of elements so
+ * that the size method runs in constant time. 
+ */
+
+/* Type for linked list cell */
+
+    struct Cell {
+        ValueType data;     // The data value
+        Cell *link;         // Link to the next cell
+    };
+
+/* Instance variables */
+
+    Cell *list;             // Initial pointer in the list
+    int count;              // Number of elements
+
+/* Private method prototypes */
+
+    void deepCopy(const Stack<ValueType> & src);
 };
+
+/*
+ * Implementation section
+ * ----------------------
+ * C++ requires that the implementation for a template class be available
+ * to the compiler whenever that type is used. Clients should not need
+ * to look at any of the code beyond this point.
+ */
+
+/*
+ * Implementation notes: Stack constructor
+ * ---------------------------------------
+ * The constructor creates an empty linked list and initializes the count.
+ */
+
+template <typename ValueType>
+Stack<ValueType>::Stack() {
+    list = NULL;
+    count = 0;
+}
+
+/*
+ * Implementation notes: Stack destructor
+ * --------------------------------------
+ * The destructor frees any heap memory that is allocated by the
+ * implementation. Because clear frees each element it processes,
+ * this implementation of the destructor simply calls that method.
+ */
+
+template <typename ValueType>
+Stack<ValueType>::~Stack() {
+    clear();
+}
+
+/*
+ * Implementation notes: size, isEmpty
+ * -----------------------------------
+ * These methods use the count variable and therefore run in constant time.
+ */
+
+template <typename ValueType>
+int Stack<ValueType>::size() const {
+    return count;
+}
+
+template <typename ValueType>
+bool Stack<ValueType>::isEmpty() const {
+    return count == 0;
+}
+
+/*
+ * Implementation notes: clear
+ * ---------------------------
+ * This method pops the stack until it is empty, thereby freeing each cell.
+ */
+
+template <typename ValueType>
+void Stack<ValueType>::clear() {
+    while (count > 0) {
+        pop();
+    }
+}
+
+/*
+ * Implementation notes: push
+ * --------------------------
+ * This method chains a new element onto the front of the list where it
+ * becomes the top of the stack.
+ */
+
+template <typename ValueType>
+void Stack<ValueType>::push(ValueType value) {
+    Cell *cp = new Cell;
+    cp->data = value;
+    cp->link = list;
+    list = cp;
+    count++;
+}
+
+/*
+ * Implementation notes: pop, peek
+ * -------------------------------
+ * These methods check for an empty stack and report an error if
+ * there is no top element. The pop method frees the cell to ensure
+ * that the implementation does not leak memory as it executes.
+ */
+
+template <typename ValueType>
+ValueType Stack<ValueType>::pop() {
+    if (isEmpty()) error("pop: Attempting to pop an empty stack");
+    Cell *cp = list;
+    ValueType result = cp-> data;
+    list = list-> link;
+    count--;
+    delete cp;
+    return result;
+}
+
+template <typename ValueType>
+ValueType Stack<ValueType>::peek() const {
+    if (isEmpty()) error("peek: Attempting to peek an empty stack");
+    return list->data;
+}
+
+/*
+ * Implementation notes: copy constructor and assignment operator
+ * --------------------------------------------------------------
+ * These methods follow the standard template, leaving the work to deepCopy.
+ */
+
+template <typename ValueType>
+Stack<ValueType>::Stack(const Stack<ValueType> & src) {
+    if (this != &src) {
+        clear();
+        deepCopy(src);
+    }
+
+    return *this;
+}
+
+/*
+ * Implementation notes: deepCopy
+ * ------------------------------
+ * The deepCopy method creates a copy of the cells in the linked list.
+ * The variable tail keeps track of the last cell in the chain.
+ */
+
+template <typename ValueType>
+void Stack<ValueType>::deepCopy(const Stack<ValueType> & src) {
+    count = src.count;
+    Cell *tail = NULL;
+    for (Cell *cp = src.list; cp != NULL; cp = cp->link) {
+        Cell *ncp = new Cell;
+        ncp->data = cp.data;
+        if (tail == NULL) {
+            list = ncp;
+        } else {
+            tail->link = ncp;
+        }
+        tail = ncp;
+    }
+    if (tail != NULL) tail->link = NULL;
+}
 
 #endif
