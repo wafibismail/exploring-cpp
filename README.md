@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Paused at page 650 (666) i.e. implementing stacks as linked lists<br>
+Paused at page 656 (672) i.e. finished implementing stacks as linked lists; need to double check before proceed to next section<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
