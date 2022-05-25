@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Stopped at page 604 (620)<br>
+Paused at page 625 (641) i.e. implementing stacks as linked lists<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -121,3 +121,21 @@ Skipped sections (and some notes) worth re-exploring:
     - perform a deep copy (e.g. in [CharStack](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/charstack.cpp)), or
     - perform nothing i.e. make copying illegal (e.g. in [EditorBuffer](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/buffer.h))
   - if this is skipped, the compiler will automatically define versions of those methods that do the wrong thing
+- Computational complexity of three buffer models, + DLList
+  - Array | Stack | List ||| DLList : operation
+  - O(1) | O(1) | O(1) ||| O(1) : moveCursorForward
+  - O(1) | O(1) | O(N) ||| O(1) : moveCursorBackward
+  - O(1) | O(N) | O(1) ||| O(1) : moveCursorToStart
+  - O(1) | O(N) | O(N) ||| O(1) : moveCursorToEnd
+  - O(N) | O(1) | O(1) ||| O(1) : insertElement
+  - O(N) | O(1) | O(1) ||| O(1) : deleteElement
+    - with DLList, time may be saved, but more space is consumed for storing each element's backward link
+    - consider the more suitable combination of array and DLList for potential use in the class [EditorBuffer](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/buffer.cpp):
+      - DLList representing the buffer containing individual lines
+        - DLList storage overhead significant reduced as links are used on each line only as opposed to on each element
+      - array representing each line containing individual characters
+        - slow in insertion at the beginning of a line but only proportional to the line, not whole buffer
+- If inserting and deleting from a linked list, allocating an extra dummy cell may often be convenient
+- templates : when exported, we must make the implementation available to the compiler when the .h file is read
+  - this means the .h file has to include the implementation
+    - the client SHOULD NOT have to look at the code beyond the interface i.e. (the implementation)
