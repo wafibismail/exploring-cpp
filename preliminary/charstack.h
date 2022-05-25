@@ -44,7 +44,7 @@ public:
  * Returns the number of characters in this stack.
  */
 
-    int size();
+    int size() const;
 
 /*
  * Method: isEmpty
@@ -53,7 +53,7 @@ public:
  * Returns true if this stack contains no characters.
  */
 
-    bool isEmpty();
+    bool isEmpty() const;
 
 /*
  * Method: clear
@@ -90,7 +90,25 @@ public:
  * removing it. Raises an error if called on an empty stack.
  */
 
-    char peek();
+    char peek() const;
+
+/*
+ * Copy constructor: CharStack
+ * Usage: (usually implicit)
+ * -------------------------
+ * Initializes the current object to be a deep copy of the specified source.
+ */
+
+    CharStack(const CharStack & src);
+
+/*
+ * Operator: =
+ * Usage: dst = src;
+ * ---------------------
+ * Assigns src to dst so that the two stacks are independent copies.
+ */
+
+    CharStack & operator=(const CharStack & src);
 
 /* Private section */
 
@@ -117,6 +135,7 @@ private:
 
 /* Private function prototype */
 
+    void deepCopy(const CharStack & src);
     void expandCapacity();
 };
 

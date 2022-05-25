@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Stopped at page 546 (562) i.e. Section 12.7 - Copying objects<br>
+Stopped at page 604 (620)<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -79,7 +79,7 @@ Skipped sections (and some notes) worth re-exploring:
     - Revisit the interface design if needed to ensure features perform to acceptable levels of efficiency
 - When using a class as a client (as opposed to as an implementor), it would make sense to ignore the private section of a class, even though C++ requires that the private section be included in the interface
 - tokens: logical units of a string that may be larger than a single character
-- sometimes i.e. when some amount of internal state needs to be maintained, it may be appropriate to encapsulate the entire program inside a class (e.g. demo in [CheckoutLineClass.cpp](https://github.com/wafibismail/exploring-cpp/preliminary/CheckoutLineClass.cpp))
+- sometimes i.e. when some amount of internal state needs to be maintained, it may be appropriate to encapsulate the entire program inside a class (e.g. demo in [CheckoutLineClass.cpp](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/CheckoutLineClass.cpp))
   - in which case, the main program creates a variable of that class and invokes a method in that class to get the program running
 - C++ defines the data type char to be exactly one byte in size (ASCII)
   - use the type wchar_t (wide characters) for programs that work with expanded charcter sets
@@ -112,4 +112,12 @@ Skipped sections (and some notes) worth re-exploring:
     - assert(*test*)
       - as long as the test expression evaluates to true, the assert macro has no effect
       - else an error message is generated
-  - refer to [CharStackUnitTest.cpp](https://github.com/wafibismail/exploring-cpp/preliminary/CharStackUnitTest.cpp))
+  - refer to [CharStackUnitTest.cpp](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/CharStackUnitTest.cpp))
+- constant call by reference e.g:
+  - void deepCopy(const CharStack & src)
+    - guarantees that the function e.g. deepCopy will not change the value of src even though it is passed by reference
+- if you allocate dynamic memory as part of a class, you have a responsibility to redefine the copy constructor and the assignment operator
+  - e.g. redefine them to either:
+    - perform a deep copy (e.g. in [CharStack](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/charstack.cpp)), or
+    - perform nothing i.e. make copying illegal (e.g. in [EditorBuffer](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/buffer.h))
+  - if this is skipped, the compiler will automatically define versions of those methods that do the wrong thing

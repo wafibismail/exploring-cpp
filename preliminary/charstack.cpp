@@ -39,11 +39,11 @@ CharStack::~CharStack() {
  * These methods are each a single line and need no detailed documentation.
  */
 
-int CharStack::size() {
+int CharStack::size() const {
     return count;
 }
 
-bool CharStack::isEmpty() {
+bool CharStack::isEmpty() const {
     return count == 0;
 }
 
@@ -64,7 +64,7 @@ void CharStack::push(char ch) {
 }
 
 /*
- * Implementationnotes: pop, peek
+ * Implementation notes: pop, peek
  * ------------------------------
  * These functions check for an empty stack and report an error if
  * there is no top element.
@@ -75,7 +75,7 @@ char CharStack::pop() {
     return array[--count];
 }
 
-char CharStack::peek() {
+char CharStack::peek() const {
     if (isEmpty()) error("peek: Attempting to peek an empty stack");
     return array[count - 1];
 }
@@ -97,4 +97,42 @@ void CharStack::expandCapacity() {
         array[i] = oldArray[i];
     }
     delete[] oldArray;
+}
+
+/*
+ * Implementation notes: copy constructor and assignment operator
+ * --------------------------------------------------------------
+ * These methods make it possible to pass a CharStack by value or
+ * assign one CharStack to another. The actual work is done by the
+ * private deepCopy method, which represents a useful pattern
+ * for designing other classes that need to implement deep copying.
+ */
+
+CharStack::CharStack(const CharStack & src) {
+    deepCopy(src);
+}
+
+CharStack & CharStack::operator=(const CharStack & src) {
+    if (this != &src) {
+        delete[] array;
+        deepCopy(src);
+    }
+    return *this;
+}
+
+/*
+ * Implementation notes: deepCopy
+ * ------------------------------
+ * This method copies the data from the src parameter into the current
+ * object. All dynamic memory is reallocated to create a "deep copy"
+ * in which the current object and the source object are independent.
+ */
+
+void CharStack::deepCopy(const CharStack & src) {
+    array = new char[src.count];
+    for (int i = 0; i < src.count; i++) {
+        array[i] = src.array[i];
+    }
+    count = src.count;
+    capacity = src.capacity;
 }
