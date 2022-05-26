@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Paused at page 737 (753) - Sets<br>
+Paused at page 823 (839) - Inheritance<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -33,6 +33,10 @@ Skipped sections (and some notes) worth re-exploring:
     - algorithmic analysis
 - Try out stack-heap diagram drawing, Chapter 12.5, page 538 (554)
 - HashMap class codes on chapter 15
+- Trees related codes
+- Set codes on chapter 17
+  - especially using bitwise operations in implementing character vectors
+- Graph-related codes on chapter 18
 
 !!!!! (some notes, concepts and terms):
 - reference parameters e.g. "& a" (in Quadratic.cpp)
@@ -155,3 +159,6 @@ Skipped sections (and some notes) worth re-exploring:
   - preorder traversal: when the key in each node is processed before the recursive calls to process the subtrees
   - postorder traversal: processing each node after both recursive calls
   - inorder traversal: processing the current node between the two recursive calls
+- two fundamental traversal strategies for graphs:
+  - depth first search - explore a single path in the graph as far as possible before backtracking to complete exploration of paths at higher levels
+  - breadth first search - visit starting node first, then nodes one hop away, followed by nodes that are two hops away, and so on
