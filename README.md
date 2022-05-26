@@ -1,6 +1,6 @@
 # About
 This repo contains the relevant (for me) C++ related learning materials. <br>
-The notes here are for my own use, so may be unusable for other readers.
+The notes and codes are for my own reference. I strongly sense that they would not make much sense without going through the information sources (e.g. book sections).
 
 ### Sections
 
@@ -8,7 +8,7 @@ The notes here are for my own use, so may be unusable for other readers.
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
 Paused at page 823 (839) - Inheritance;
-Revisiting & paused at page 748 (764) to write implement code for Set class<br>
+Revisiting & paused at page 793 (809) - parameterized graph<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -33,8 +33,8 @@ Skipped sections (and some notes) worth re-exploring:
     - backtracking algorithms
     - algorithmic analysis
 - Try out stack-heap diagram drawing, Chapter 12.5, page 538 (554)
-- Code for the Map template class (not in book)
-- Trees related codes
+- Write code for the Map template class (not in book)
+- Implementing AVL tree insertion algorithm
 - Exercises on chapter 17
   - especially using bitwise operations in implementing character vectors
 - Graph-related codes on chapter 18
