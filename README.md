@@ -7,7 +7,7 @@ The notes here are for my own use, so may be unusable for other readers.
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Paused at page 656 (672) i.e. finished implementing stacks as linked lists; need to double check before proceed to next section<br>
+Paused at page 737 (753) - Sets<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -32,6 +32,7 @@ Skipped sections (and some notes) worth re-exploring:
     - backtracking algorithms
     - algorithmic analysis
 - Try out stack-heap diagram drawing, Chapter 12.5, page 538 (554)
+- HashMap class codes on chapter 15
 
 !!!!! (some notes, concepts and terms):
 - reference parameters e.g. "& a" (in Quadratic.cpp)
@@ -145,3 +146,12 @@ Skipped sections (and some notes) worth re-exploring:
 - in the book, Queue ADT is represented in:
   - array / ring buffer
     - keeping track of both head and tail to avoid having to shift elements
+- by convention, an empty tree's height is defined to be -1
+- the AVL algorithm (for maintaining trees' balance) is used in the book as it's easy to understand, though it is by no means the most efficient.
+  - with AVL trees, balance after insertion can always be restored by performing one operation i.e. either:
+    - single rotation
+    - double rotation
+- traversing / walking a binary tree: to step through its nodes
+  - preorder traversal: when the key in each node is processed before the recursive calls to process the subtrees
+  - postorder traversal: processing each node after both recursive calls
+  - inorder traversal: processing the current node between the two recursive calls

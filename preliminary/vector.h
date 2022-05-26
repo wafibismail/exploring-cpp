@@ -272,7 +272,7 @@ template <typename ValueType>
 void Vector<ValueType>::insert(int index, ValueType value) {
     if (count == capacity) expandCapacity();
     if (index < 0 || index > count) error("insert: out or range");
-    for (int i = count; i > index; i++) {
+    for (int i = count; i > index; i--) {
         array[i] = array[i - 1];
     }
     array[index] = value;
@@ -283,7 +283,7 @@ template <typename ValueType>
 void Vector<ValueType>::remove(int index) {
     if (index < 0 || index >= count) error("remove: index out of range");
     for (int i = index; i < count - 1; i++) {
-        array[i] = array[i+1];
+        array[i] = array[i + 1];
     }
     count--;
 }
