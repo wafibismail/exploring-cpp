@@ -7,8 +7,7 @@ The notes and codes are for my own reference. I strongly sense that they would n
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Paused at page 823 (839) - Inheritance;
-Revisiting & paused at page 804 (820) - finding shortest path (in a graphs)<br>
+Paused at page 832 (848) - A hierarchy of graphical objects<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -37,7 +36,6 @@ Skipped sections (and some notes) worth re-exploring:
 - Implementing AVL tree insertion algorithm
 - Exercises on chapter 17
   - especially using bitwise operations in implementing character vectors
-- Graph-related codes on chapter 18
 
 !!!!! (some notes, concepts and terms):
 - reference parameters e.g. "& a" (in Quadratic.cpp)
@@ -163,3 +161,12 @@ Skipped sections (and some notes) worth re-exploring:
 - two fundamental traversal strategies for graphs:
   - depth first search - explore a single path in the graph as far as possible before backtracking to complete exploration of paths at higher levels
   - breadth first search - visit starting node first, then nodes one hop away, followed by nodes that are two hops away, and so on
+- in C++, assigning subclass to a superclass variable leads to some of its data to be excluded i.e. it is sliced
+  - to overcome this, use pointers to the objects instead
+    - this also has the effect of calling the appropriate virtual methods on dereferenced objects as opposed to calling the one that belongs to the declared variable's class
+- complication in inheritance comes from memory management
+  - kept under control by freeing any allocated memory with the use of the defined destructors
+    - however as soon as pointers cross the boundary to the client side of the interface, there is no guarantee that the destructors will be called at the appropriate time
+  - best to avoid inheritance and instead create independent classes that manage their own heap memory
+    - alternatively, define private versions of the copy instructor and assignment operator so that copying objects in that inheritance is inhibited
+    - or, (unadvisable:) allow clients to be responsible for the memory management
