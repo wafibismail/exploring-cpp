@@ -8,7 +8,7 @@ The notes and codes are for my own reference. I strongly sense that they would n
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
 Paused at page 823 (839) - Inheritance;
-Revisiting & paused at page 793 (809) - parameterized graph<br>
+Revisiting & paused at page 804 (820) - finding shortest path (in a graphs)<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
