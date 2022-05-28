@@ -5,9 +5,7 @@ The notes and codes are for my own reference & provavly won't make sense without
 ### Sections
 
 #### preliminary:
-[Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
-
-Paused at page 856 (872) - Description on Expression subclasses' representation<br>
+[Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon.<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -36,6 +34,8 @@ Skipped sections (and some notes) worth re-exploring:
 - Implementing AVL tree insertion algorithm
 - Exercises on chapter 17
   - especially using bitwise operations in implementing character vectors
+- Try using a bit of STL algorithms library (or &lt;algorithms&gt; interface), generally (not in book), and also specifically as iteration strategies (Chapter 20.4)
+- STL &lt;functional&gt; interface
 
 !!!!! (some notes, concepts and terms):
 - reference parameters e.g. "& a" (in Quadratic.cpp)
@@ -183,3 +183,22 @@ Skipped sections (and some notes) worth re-exploring:
 - **pure** virtual methods:
   - the class itself only declares, and does not implement
   - each of the class's subclasses MUST implement
+- recursive-descent parsers
+  - these use mutually recursive functions such that [e.g. the parser](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/parser.cpp) has two functions, one for reading expressions i.e. readE and the other for reading terms i.e. readT
+    - when readE needs to read a term, it does so by calling readT
+    - when readT needs to read an expression, it does so by callinig teadE
+- with multiple inheritance, it is possible to extract the duplicate codes for e.g. from both GOval and GRect in [gobjects.h](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/gobjects.h):
+  - into the superclass *GFillable*:
+    - bool fillFlag
+    - void setFilled(bool flag)
+  - though multiple inheritance does come with its own troubles e.g.:
+    - difficult to decide which version of field or method to inherit if the same names appear in more than one superclass
+  - best to avoid overall, but still be able to understand in other existing codes
+- closure : combination of a function and its associated data e.g. encapsulating a callback function and client-supplied data as a single unit
+  - to use closures in C++, need to create the necessary data structures
+    - function classes: like regular objects, but also overloading its operator() so it would be called as a function
+     - Example: [AddKFunction.cpp](https://github.com/wafibismail/exploring-cpp/blob/main/preliminary/AddKFunction.cpp)
+     - which can be taken as argument to template functions e.g:
+       - template &lt;typename FunctionClass&gt;
+       - void mapAll(FunctionClass fn)
+     - ... and if the type fails to override the function call operator with a method taking the expected arguments, the compiler will generate an error message when the compiler attempts to expand the template function
