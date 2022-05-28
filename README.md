@@ -7,7 +7,7 @@ The notes and codes are for my own reference & provavly won't make sense without
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Paused at page 851 (867) - Interpreter simulation<br>
+Paused at page 856 (872) - Description on Expression subclasses' representation<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
