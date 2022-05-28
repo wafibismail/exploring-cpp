@@ -7,7 +7,7 @@ The notes and codes are for my own reference & provavly won't make sense without
 #### preliminary:
 [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/)) is the book which this section is based upon. 
 
-Paused at page 843 (859) - Interpreter simulation<br>
+Paused at page 851 (867) - Interpreter simulation<br>
 
 Skipped sections (and some notes) worth re-exploring:
 - Exercises in each chapter
@@ -171,3 +171,15 @@ Skipped sections (and some notes) worth re-exploring:
     - alternatively, define private versions of the copy instructor and assignment operator so that copying objects in that inheritance is inhibited
     - or, (unadvisable:) allow clients to be responsible for the memory management
 - protected section: entries contained in it are accessible to subclasses but not to clients
+- when an exception is thrown inside a try statement:
+  - the currently executed function is stopped
+  - the program climbs back up the chain of function calls, until it reaches the stack frame that contains the try statement.
+    - popping and discarding stack frames along the way
+  - then continues from the catch clause which type matches the type of variable thrown 
+    - there can be more than one catch clause for a single try statement
+      - differentiated by the type of variable
+- expression definition:
+  - ambiguous: when mutiple interpretation of the same string is allowed
+- **pure** virtual methods:
+  - the class itself only declares, and does not implement
+  - each of the class's subclasses MUST implement
