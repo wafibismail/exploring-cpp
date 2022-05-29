@@ -84,6 +84,8 @@ bool Game::Initialize() {
         -1,         // Usually -1
         SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
     );
+    mBallPos = {1024/2, 768/2};
+    mPaddlePos = { static_cast<float>(thickness), 768/2};
 
     if (!mRenderer) { // if mRenderer is a nullptr
         SDL_Log("Failed to create renderer: %s", SDL_GetError());
@@ -172,5 +174,27 @@ void Game::GenerateOutput() {
         255     // A
     );
     SDL_RenderClear(mRenderer);
+    SDL_SetRenderDrawColor(mRenderer, 255, 255, 255, 255);
+    SDL_Rect wall{
+        0,          // Top left x
+        0,          // Top left y
+        1024,       // Width, do NOT hard code window size in actual practice
+        thickness   // Height
+    };
+    SDL_Rect ball{
+        static_cast<int>(mBallPos.x - thickness/2),
+        static_cast<int>(mBallPos.y - thickness/2),
+        thickness,
+        thickness,
+    };
+    SDL_Rect paddle{
+        static_cast<int>(mPaddlePos.x - thickness/2),
+        static_cast<int>(mPaddlePos.y - thickness*3),
+        thickness,
+        thickness*6,
+    };
+    SDL_RenderFillRect(mRenderer, &wall);
+    SDL_RenderFillRect(mRenderer, &ball);
+    SDL_RenderFillRect(mRenderer, &paddle);
     SDL_RenderPresent(mRenderer);
 }

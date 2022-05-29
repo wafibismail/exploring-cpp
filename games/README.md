@@ -1,4 +1,10 @@
-At 3% of the book
+Based on:
+- Book: Game Programming in C++: Creating 3D Games (Game Design)
+- Author: Sanjay Madhav<br>
+
+Paused at 4% progress i.e. just before "Updating the Game"<br>
+
+I find it is a very good book, but at this point I've switched to working on something else; I intend to resume following this book/course sometime in the distant future.
 
 - dependency:
   - SDL2

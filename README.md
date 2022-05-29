@@ -6,3 +6,6 @@ The notes and codes are for my own reference & provavly won't make sense without
 
 #### preliminary:
 Based on [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_edu/resources/textbook/) (by [Eric S. Roberts](https://cs.stanford.edu/people/eroberts/))<br>
+
+#### games:
+Based on Game Programming in C++: Creating 3D Games (Game Design) by Sanjay Madhav
