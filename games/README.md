@@ -1,3 +1,5 @@
+- dependency:
+  - SDL2
 - In each frame, at high level, a game:
   - 1) processes any input
     - e.g. the player, other players, external e.g. GPS information

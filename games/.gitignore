@@ -1,2 +1,3 @@
-#Libraries
-/external-libs
+#dlls
+*.dll
+*.exe

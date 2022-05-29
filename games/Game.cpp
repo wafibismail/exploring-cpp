@@ -9,17 +9,36 @@
 Game::Game() { }
 
 /*
- * Implementation notes: Game::Initialize
+ * Implementation notes: Initialize
  * --------------------------------------
- * Here the SDL library is initialized with the SDL_Init function, which
+ * Within this method:
+ * 1. The SDL library is initialized with the SDL_Init function, which
  * takes a single parameter, a bitwise OR of all subsystems to initialize.
+ * 
  * Subsystems flags e.g.:
  * - SDL_INIT_AUDIO
  * - SDL_INIT_VIDEO
  * - SDL_INIT_HAPTIC
  * - SDL_INIT_GAMECONTROLLER
  * 
- * Initialize returns true if initialization succeeds, false otherwise.
+ * 2. A window is created with SDL_CreateWindow, which takes in several
+ * parameters:
+ * - the title of the window
+ * - the top-left corner x/y coordinates
+ * - the width/height of the window
+ * - (optional) any window creation flags
+ * 
+ * Window creation flags e.g.:
+ * - SDL_WINDOW_FULLSCREEN
+ * - SDL_WINDOW_FULLSCREEN_DESKTOP
+ * - SDL_WINDOW_OPENGL
+ * - SDL_WINDOW_RESIZABLE
+ * 
+ * Initialize returns true if all these succeed:
+ * - SDL initialization
+ * - Window creation
+ * 
+ * False otherwise
  */
 
 bool Game::Initialize() {
@@ -32,20 +51,6 @@ bool Game::Initialize() {
         SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
         return false;
     }
-
-    /*
-     * The SDL_CreateWindow takes in several parameters:
-     * - the title of the window
-     * - the top-left corner x/y coordinates
-     * - the width/height of the window
-     * - (optional) any window creation flags
-     * 
-     * Window creation flags e.g.:
-     * - SDL_WINDOW_FULLSCREEN
-     * - SDL_WINDOW_FULLSCREEN_DESKTOP
-     * - SDL_WINDOW_OPENGL
-     * - SDL_WINDOW_RESIZABLE
-     */
 
     mWindow = SDL_CreateWindow(
         "Game Programming in C++ (Chapter 1)",
@@ -66,3 +71,41 @@ bool Game::Initialize() {
     // If both SDL initialization and window creation succeeds:
     return true;
 }
+
+/*
+ * Implementation notes: Shutdown
+ * ------------------------------------
+ * This method does the opposite of Initialize, i.e:
+ * - destroys SDL_Window with SDL_DestroyWindow
+ * - closes SDL using SDL_Quit
+ */
+
+void Game::Shutdown() {
+    SDL_DestroyWindow(mWindow);
+    SDL_Quit();
+}
+
+/*
+ * Implementation notes: RunLoop
+ * -----------------------------------
+ * This method keeps running iterations of the game loop until
+ * mIsRunning becomes false, at which point the function returns.
+ */
+
+void Game::RunLoop() {
+    while (mIsRunning) {
+        ProcessInput();
+        UpdateGame();
+        GenerateOutput();
+    }
+}
+
+/*
+ * Implementation notes: Private methods
+ * -------------------------------------
+ * Currently do nothing
+ */
+
+void Game::ProcessInput() {}
+void Game::UpdateGame() {}
+void Game::GenerateOutput() {}
