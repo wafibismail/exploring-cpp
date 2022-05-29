@@ -68,7 +68,14 @@ bool Game::Initialize() {
         return false;
     }
 
+    mRenderer = SDL_CreateRenderer(
+        mWindow,    // Window to create renderer for
+        -1,         // Usually -1
+        SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
+    );
+
     // If both SDL initialization and window creation succeeds:
+    mIsRunning = true;
     return true;
 }
 
@@ -101,11 +108,27 @@ void Game::RunLoop() {
 }
 
 /*
- * Implementation notes: Private methods
- * -------------------------------------
- * Currently do nothing
+ * Implementation notes: ProcessInput
+ * ----------------------------------
+ * Processes any input e.g. change mIsRunning (the sentinel) to false
+ * if either the X button is clicked or escape key is pressed
+ * 
+ * SDL_PollEvent returns true if it finds any event in the queue
  */
 
-void Game::ProcessInput() {}
+void Game::ProcessInput() {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) { // also polls and stores the event
+        switch (event.type) {
+            case SDL_QUIT: // when the close button is clicked
+                mIsRunning = false;
+                break;
+        }
+    }
+    const Uint8* state = SDL_GetKeyboardState(NULL);
+    if (state[SDL_SCANCODE_ESCAPE]) {
+        mIsRunning = false;
+    }
+}
 void Game::UpdateGame() {}
 void Game::GenerateOutput() {}

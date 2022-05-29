@@ -21,7 +21,9 @@ private:
     // Window created by SDL
     SDL_Window* mWindow;
     // Game should continue to run
-    bool mIsRunning; 
+    bool mIsRunning;
+
+    SDL_Renderer* mRenderer;
 };
 
 #endif
