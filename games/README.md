@@ -47,3 +47,7 @@ At 3% of the book
         - rather than the display notifying the game when it refreshes, the game tells the display when to refresh. this way, the game and display are in sync
         - though this is only available on certain high-end monitors
 - renderer: any system that draws graphics
+- Basic drawing setup:
+  - 1.. Clear the back buffer to a color (the game's current buffer)
+  - 2.. Draw the entire game screen
+  - 3.. Swap the front buffer and back buffer

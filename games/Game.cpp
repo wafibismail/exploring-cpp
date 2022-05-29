@@ -34,9 +34,20 @@ Game::Game() { }
  * - SDL_WINDOW_OPENGL
  * - SDL_WINDOW_RESIZABLE
  * 
+ * 3. A renderer is created with SDL_CreateRenderer, which takes in as
+ * parameters:
+ * - the window
+ * - specify which driver to use
+ *     * relevant with multiple windows
+ *     * -1 is default, letting SDL decide
+ * - initialization flags
+ *     * e.g. choose to use an accelerated renderer (i.e. takes advantage of graphics hardware)
+ *     * e.g. enable vertical synchronization
+ *  
  * Initialize returns true if all these succeed:
  * - SDL initialization
  * - Window creation
+ * - Renderer creation
  * 
  * False otherwise
  */
@@ -63,7 +74,7 @@ bool Game::Initialize() {
 
     /* As with SDL_Init, SDL_CreateWindow execution need to be verified */
 
-    if (!mWindow) { // if mWindow is nulltpr
+    if (!mWindow) { // if mWindow is nullptr
         SDL_Log("Failed to create window: %s", SDL_GetError());
         return false;
     }
@@ -73,6 +84,11 @@ bool Game::Initialize() {
         -1,         // Usually -1
         SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
     );
+
+    if (!mRenderer) { // if mRenderer is a nullptr
+        SDL_Log("Failed to create renderer: %s", SDL_GetError());
+        return false;
+    }
 
     // If both SDL initialization and window creation succeeds:
     mIsRunning = true;
@@ -88,6 +104,7 @@ bool Game::Initialize() {
  */
 
 void Game::Shutdown() {
+    SDL_DestroyRenderer(mRenderer);
     SDL_DestroyWindow(mWindow);
     SDL_Quit();
 }
@@ -110,7 +127,9 @@ void Game::RunLoop() {
 /*
  * Implementation notes: ProcessInput
  * ----------------------------------
- * Processes any input e.g. change mIsRunning (the sentinel) to false
+ * Processes any input
+ * 
+ * Change mIsRunning (the sentinel) to false
  * if either the X button is clicked or escape key is pressed
  * 
  * SDL_PollEvent returns true if it finds any event in the queue
@@ -131,4 +150,27 @@ void Game::ProcessInput() {
     }
 }
 void Game::UpdateGame() {}
-void Game::GenerateOutput() {}
+
+/*
+ * Implementation notes: GenerateOutput
+ * ------------------------------------
+ * SDL_SetRenderDrawColor takes in a pointer to the renderer as well as
+ * the four RGBA components. This needs to be used to set the color first
+ * before clearing the back buffer with that color with SDL_RenderClear
+ * 
+ * [drawing the entires game scene is skipped for now]
+ * 
+ * SDL_RenderPresent is used to swap the front and back buffers
+ */
+
+void Game::GenerateOutput() {
+    SDL_SetRenderDrawColor(
+        mRenderer,
+        0,      // R
+        0,      // G
+        255,    // B
+        255     // A
+    );
+    SDL_RenderClear(mRenderer);
+    SDL_RenderPresent(mRenderer);
+}
