@@ -1,0 +1,8 @@
+- In each frame, at high level, a game:
+  - 1) processes any input
+    - e.g. the player, other players, external e.g. GPS information
+  - 2) updates the game world
+    - e.g. characters, objects, UI
+  - 3) generates any output
+    - graphics, audio
+    - force feedback effects e.g. controller vibration when something happens
