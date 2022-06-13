@@ -143,14 +143,56 @@ GLenum errorCheck()
 }
 ```
 
-To do: Draw a rough specification of an app or a few apps with these characteristics; <br> Use visual diagrams and/or text, listing the properties of the objects in this app. <br> It's important to use this specification as it will used to modify the app later on
+To do: Draw a rough specification of an app or a few apps with these characteristics; <br>
+Use visual diagrams and/or text, listing the properties of the objects in this app. <br>
+It's important to use this specification as it will used to modify the app later on
 ```
 Checklist:
-[] The objects are complex in shape or texture
-[] The objects can be approximated fairly well by simpler shapes
-[] Some of the objects are comprised of fairly complex curved surfaces
-[] The objects lend themselves to being represented two-dimensionally at first, even if unrealistically
-[] The objects can be represented as a hierarchically organized group of smaller objects/parts
-[] The objects change position and orientation dynamically in response to user input
-[] The lightning conditions change in the application, and the object appearances change under these varying conditions
+[/] The objects are complex in shape or texture.
+[/] The objects can be approximated fairly well by simpler shapes.
+[/] Some of the objects are comprised of fairly complex curved surfaces.
+[?] The objects lend themselves to being represented two-dimensionally at
+    first, even if unrealistically.
+[/] The objects can be represented as a hierarchically organized group of
+    smaller objects/parts.
+[/] The objects change position and orientation dynamically in response
+    to user input.
+[/] The lightning conditions change in the application, and the object
+    appearances change under these varying conditions.
+```
+
+```
+App 1: generic mine
+- gui: live text display
+  - amount of money, gems
+- blacksmith
+  - anvil
+    - inverted pyramid top
+    - flat cuboid base
+  - hammer
+    - T shape
+      - cuboid head
+      - cuboid body
+    - rotate when hitting
+- cave environment
+  - lighning from defferent sources
+    - open entrance
+    - fire torches on walls
+  - textured rock walls
+  - capsuled shaped
+    - spherical ends
+    - cyllindrical center
+    - flat bottom/floor
+- various types of rocks
+  - group of either
+    - cones, pyramids, cyllinders, cuboids or fractals
+  - different colors
+  - when hit
+    - decay visibly
+    - emit appropriately/similarly shaped children
+- graphic: pickaxe
+  - T shape
+    - curved head
+    - cyllinder body
+  - rotate when hitting
 ```
