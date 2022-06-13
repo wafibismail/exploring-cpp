@@ -9,3 +9,6 @@ Based on [Programming Abstractions with C++](https://web.stanford.edu/dept/cs_ed
 
 #### games:
 Based on Game Programming in C++: Creating 3D Games (Game Design) by Sanjay Madhav
+
+#### graphics:
+Based on Computer Graphics with Open GL by Hearn, Baker & Carithers
