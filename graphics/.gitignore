@@ -6,3 +6,4 @@ obj
 # codeblock files
 *.depend
 *.cbp
+*.layout
