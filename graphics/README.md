@@ -1,5 +1,5 @@
 Current location:
-- Page 45 - Graphics Output Primitives
+- Page 53 - Fill Area Primitives
 
 Personal note
 - I removed these environment paths to avoid clashes:
