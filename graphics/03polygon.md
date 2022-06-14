@@ -63,3 +63,84 @@ E.g. 2:
 Once a polygon is identified to be concave, it can be split into a set of convex polygons, using
 - edge vectors and edge cross-products, or
 - vertex positions relative to an edge extension line to determine which vertices are on one side of this line and which are on the other
+
+## Vector method
+Given two consecutive vertex positions Vk and V(k+1) <br>
+We define the edge vectors as <br>
+<br>
+
+Ek = V(k+1) - Vk <br>
+<br>
+
+Calculate the cross products of successive edge vectors in order around the polygon perimeter
+- if some cross-products are positive
+- while the others are negative
+<br>
+
+then the polygon is concave. Otherwise it is convex. <br>
+<br>
+
+This assumes that no series of successive vertices are collinear, in which case the cross-product for the two edge vertices would be zero. <br>
+<br>
+
+If all vertices are collinear, we have a degenerate polygon (a straight line) <br>
+<br>
+
+We can apply the vector method by processing edge vectors in a counter clockwise order <br>
+<br>
+
+If any cross-product is negative, the polygon is concave and we can split it along the first edge vector in the cross-product pair
+
+```
+E.g.
+E1 = (1,0,0)   E2 = (1,1,0)
+E3 = (1,-1,0)  E4 = (0,2,0)
+E5 = (-3,0,0)  E6 = (0,-2,0)
+
+Cross products between successive pairs Ej and Ek = Ejx*Eky - Ekx*Ejy
+(as all are in the xy plane)
+
+E1 x E2 = (0,0,1)    E2 x E3 = (0,0,-2)   <- has a negative z component, so we split
+E3 x E4 = (0,0,2)    E4 x E5 = (0,0,6)       the polygon along the line of vector E2
+E5 x E6 = (0,0,6)    E6 x E1 = (0,0,2)       (slope of 1, y-intercept of -1)
+                                                            |
+                                                            |
+                We then determine the intersection of this--+
+                line with the other polygon edges to split
+                the polygon in two pieces
+
+                No other edge cross-products are negative
+                so the two new polygons are both convex
+```
+
+# Inside outside tests
+
+Two commonly used algorithms:
+- odd-even rule, a.k.a. odd-parity rule, or even-odd rule
+  - from any arbitrary point, count the number of lines passed by it on the way out
+    - odd count = interior, even count = exterior
+- nonzero winding-number rule
+  - from a line from any arbitrary point, count the number of intersections
+    - counter-clockwise intersection = +1, clockwise intersection = -1
+    - or, differentiate the direction with the z sign of cross product between:
+      - the arbitrary line
+      - the vector of the boundary passed
+  - non-zero count = interior, zero count = exterior
+
+# Polygon tables
+
+```
+ VERTEX TABLE     EDGE TABLE    SURFACE-FACET TABLE
+V1: x1, y1, z1    E1: V1, V1    S1: E1, E2, E3
+V2: x2, y2, z2    E2: V2, V3    S2: E3, E4, E5, E6
+V3: x3, y3, z3    E3: V3, V1
+V4: x4, y4, z4    E4: V3, V4
+V5: x5, y5, z5    E5: V4, V5
+                  E6: V5, V1
+
+More data could be added to these tables
+E.g. expand the edge table to include forward pointers into the surface-facet table
+     so that a common edge between polygons could be identified more easily,
+     which is particularly useful for rendering procedures that must vary
+     surface shading smoothly across the edges from one polygon to the next
+```

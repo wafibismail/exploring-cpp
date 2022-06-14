@@ -1,5 +1,5 @@
 Current location:
-- Page 56 - Splitting concave polygons
+- Page 63 - normal vector of a plane
 
 Personal note
 - I removed these environment paths to avoid clashes:
