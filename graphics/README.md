@@ -1,5 +1,9 @@
 Current location:
-- Page 63 - normal vector of a plane
+- Page 92 - circle midpoint routine
+
+Need to revisit:
+- From book
+  - plane equations
 
 Personal note
 - I removed these environment paths to avoid clashes:
