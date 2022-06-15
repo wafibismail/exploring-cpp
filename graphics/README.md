@@ -1,9 +1,11 @@
 Current location:
-- Page 92 - circle midpoint routine
+- Page 95 (102 of 819) - drawcurve function
 
 Need to revisit:
 - From book
   - plane equations
+- 07midpoint
+  - improve circle generation algorithm
 
 Personal note
 - I removed these environment paths to avoid clashes:
