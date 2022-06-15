@@ -1,0 +1,8 @@
+Using a circle function, write a routine to display
+a pie chart with appropriate labeling. Input to the
+routine is to include a data set giving the distri-
+bution of the data over some set of intervals, the
+name of the pie chart, and the names of the inter-
+vals. Each section label is to be displayed outside
+the boundary of the pie chart near the correspond-
+ing pie section.

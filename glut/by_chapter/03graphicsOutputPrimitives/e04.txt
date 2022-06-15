@@ -1,0 +1,3 @@
+Devise routines for checking the three geometric
+data tables in Figure 16 to ensure consistency and
+completeness.

@@ -1,0 +1,3 @@
+Calculate the plane parameters A, B, C, and D for
+each face of a unit cube centered at the world co-
+ordinate origin.

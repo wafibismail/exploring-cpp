@@ -1,0 +1,4 @@
+Devise an algorithm for determining interior re-
+gions for any input set of vertices using the nonzero
+winding-number rule and dot-product calcula-
+tions to identify the direction for edge crossings.

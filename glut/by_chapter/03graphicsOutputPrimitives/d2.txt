@@ -1,0 +1,12 @@
+Choose one of the concave polygons you generated
+in the previous exercise and set up the vertex, edge,
+and surface facet tables for the shape as described
+in Section 7. Now split the shape it into a set of
+convex polygons using the vector method given in
+the same section. Then split each of the resulting
+convex polygons into a set of triangles using the
+method described in Section 7 as well. Finally,
+set up the vertex, edge, and surface facet tables
+for the resulting set of triangles. Compare the two
+table sets and the amount of memory needed to
+store each.

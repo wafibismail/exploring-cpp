@@ -1,0 +1,3 @@
+Write a procedure to determine whether a given
+point is inside or outside of a cube with a given set
+of coordinates.

@@ -1,0 +1,4 @@
+Modify the example program in Section 16 so
+that the displayed hexagon is always at the cen-
+ter of the display window, regardless of how the
+display window may be resized.

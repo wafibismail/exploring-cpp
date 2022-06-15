@@ -1,0 +1,2 @@
+Write a program to display a bar chart in any
+selected area of a display window.

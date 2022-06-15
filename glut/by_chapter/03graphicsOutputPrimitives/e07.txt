@@ -1,0 +1,4 @@
+Write a procedure to determine whether an input
+coordinate position is in front of a polygon surface
+or behind it, given the plane parameters A, B, C,
+and D for the polygon.

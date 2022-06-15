@@ -1,0 +1,4 @@
+Write a routine to implement a polymarker func-
+tion that has two parameters: one parameter is
+the character that is to be displayed and the other
+parameter is a list of world-coordinate positions.

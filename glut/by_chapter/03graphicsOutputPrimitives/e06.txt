@@ -1,0 +1,2 @@
+Write a program for calculating parameters A, B, C,
+and D for an input mesh of polygon-surface facets.

@@ -1,18 +1,28 @@
 Current location:
-- Page 95 (102 of 819) - drawcurve function
+- Page 97 (104 of 819) - Chapter 3 end of chapter exercises - unfinished coding in __dump
 
-Need to revisit:
-- From book
+Need to check/revisit:
+- From this book
   - plane equations
-- 07midpoint
-  - improve circle generation algorithm
+  - 07midpoint
+    - improve circle generation algorithm
+  - exercises at the end of each chapter
+- Woo et al (1999)
+  - programming examples using OpenGL primitive functions
+- Kilgard (1996)
+  - complete reference to GLUT
 
 Personal note
-- I removed these environment paths to avoid clashes:
-  - C:\Strawberry\c\bin
-  - C:\Strawberry\c\perl\site\bin
-  - C:\Strawberry\c\perl\bin
-- And added C:\msys64\mingw64\bin
+- This book is way more dense than average among the recent books I've read
+  - so remember when returning to do the exercises
+    - to be at peach with a slower than normal pace of progress
+- To avoid conflicting bin paths
+  - I removed these:
+    - C:\Strawberry\c\bin
+    - C:\Strawberry\c\perl\site\bin
+    - C:\Strawberry\c\perl\bin
+  - And added C:\msys64\mingw64\bin
+  - (This is specific only to my device, as of June 2022)
 
 Software standard systems:
 - GKS - Graphical Kernel System

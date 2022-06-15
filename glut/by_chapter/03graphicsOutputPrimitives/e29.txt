@@ -1,0 +1,9 @@
+Write a procedure to display a line graph for any
+input set of data points in any selected area of
+the screen, with the input data set scaled to fit
+the selected screen area. Data points are to be
+displayed as asterisks joined with straight-line
+segments, and the x and y axes are to be labeled
+according to input specifications. (Instead of aster-
+isks, small circles or some other symbols could be
+used to plot the data points.)

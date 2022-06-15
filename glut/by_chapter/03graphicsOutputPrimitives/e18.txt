@@ -1,0 +1,2 @@
+Write a routine to identify concave polygons by
+calculating cross-products of pairs of edge vectors.

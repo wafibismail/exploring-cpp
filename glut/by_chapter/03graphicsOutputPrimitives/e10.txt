@@ -1,0 +1,6 @@
+Given that the first three vertices, V1 , V2 , and V3 , of
+a pentagon have been used to calculate plane pa-
+rameters A = 15, B = 21, C = 9, D = 0, determine
+from the final two vertices V4 = (2, −1, −1) and
+V5 = (1, −2, 2) whether the pentagon is planar or
+non-planar.

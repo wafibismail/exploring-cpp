@@ -1,0 +1,4 @@
+Write a routine to implement a text-string function
+that has two parameters: one parameter specifies a
+world-coordinate position and the other parameter
+specifies a text string.

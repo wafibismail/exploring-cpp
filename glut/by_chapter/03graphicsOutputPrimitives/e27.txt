@@ -1,0 +1,6 @@
+Write a complete program for displaying a bar
+chart. Input to the program is to include the data
+points and the labeling required for the x and y
+axes. The data points are to be scaled by the pro-
+gram so that the graph is displayed across the full
+area of a display window.

@@ -1,0 +1,2 @@
+Write a routine to split a concave polygon, using
+the vector method.

@@ -1,0 +1,5 @@
+What regions of the self-intersecting polyline
+shown in Figure 12 have a positive winding num-
+ber? What are the regions that have a negative
+winding number? What regions have a winding
+number greater than 1?

@@ -1,0 +1,6 @@
+If the coordinate reference for a scene is changed
+from a right-handed system to a left-handed sys-
+tem, what changes could we make in the values
+of surface plane parameters A, B, C, and D to en-
+sure that the orientation of the plane is correctly
+described?

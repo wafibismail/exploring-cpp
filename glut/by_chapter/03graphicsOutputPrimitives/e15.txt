@@ -1,0 +1,2 @@
+Devise an algorithm for splitting a set of n polygon
+vertex positions, with n > 4, into a set of triangles.

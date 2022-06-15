@@ -1,0 +1,17 @@
+For this exercise, draw a rough sketch of what a
+single “snapshot” of your application might look
+like and write a program to display this snapshot.
+Choose a background color and default window
+size. Make sure the snapshot includes at least a
+few objects. Represent each object as a polygonal
+approximation to the true object. Use a different
+shape for each object type. Represent at least one
+of the objects as a concave polygon. Make each
+object its own color distinct from the background
+color. It is a good idea to write a separate function
+for each object (or each object type) in which
+you define the representation. Use display lists to
+create and display each object. Include a display
+window reshape function to redraw the scene
+appropriately if the window is if the window is
+resized.

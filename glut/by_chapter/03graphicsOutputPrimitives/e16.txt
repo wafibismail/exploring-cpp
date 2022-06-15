@@ -1,0 +1,3 @@
+Set up an algorithm for identifying a degenerate
+polygon vertex list that may contain repeated ver-
+tices or collinear vertices.

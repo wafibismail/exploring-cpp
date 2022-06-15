@@ -1,0 +1,3 @@
+Extend the algorithm of the previous exercise to
+identify a nonplanar vertex list that contains more
+than four coordinate positions.

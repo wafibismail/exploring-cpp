@@ -1,0 +1,2 @@
+Devise an algorithm for identifying a polygon ver-
+tex list that contains intersecting edges.
