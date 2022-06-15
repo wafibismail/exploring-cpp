@@ -3,7 +3,7 @@ Based on:
 - Author: Sanjay Madhav<br>
 
 Paused at 4% progress i.e. just before "Updating the Game"<br>
-(I switched to, and have completed, a course from another book that uses another language and a development framework as per recommendation; I will return to this book/course sometime in the distant future as I do find that it is a good book, and that the the author conveys the lessons really well)<br>
+(I switched to, and have completed, a course from another book that uses another language and a game development framework as per recommendation; I will return to this book/course sometime in the distant future as I do find that it is a good book, and that the the author conveys the lessons really well)<br>
 
 - dependency:
   - SDL2
