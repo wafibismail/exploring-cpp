@@ -1,70 +1,51 @@
 #include "verttable.hpp"
 
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-/* Constructor and Destructor */
+#include <iostream>
+#include <sstream>
 
 VertTable::VertTable()
 {
-    size = 2;
-    vertices = new Vert[size];
-
-    currPos = 0;
+    size = 20;
+    currNdx = 0;
+    verts = new Vert[size];
 }
+VertTable::~VertTable() { delete[] verts; }
 
-VertTable::~VertTable()
+Vert *VertTable::add(GLfloat x, GLfloat y, GLfloat z)
 {
-    delete[] vertices;
-}
+    Vert *vPtr = getPtr(x, y, z);
+    if (vPtr == NULL) {
+        if (currNdx == size) return verts;
 
-/* Public methods */
+        vPtr = &verts[currNdx++];
 
-int VertTable::addVert(Vert vert)
-{
-    if (currPos == size) expandCapacity();
-    vertices[currPos] = vert;
+        vPtr->x = x;
+        vPtr->y = y;
+        vPtr->z = z;
 
-    return currPos++;
-}
+        std::stringstream labelSS;
+        labelSS << "V" << currNdx;
 
-int VertTable::addCoords(GLfloat x, GLfloat y, GLfloat z)
-{
-    Vert v; v.x = x; v.y = y; v.z = z;
-    return addVert(v);
-}
-
-int VertTable::getVertIndex(Vert v)
-{
-    for (int i = 0; i < currPos; i++) {
-        if (
-            vertices[i].x == v.x &&
-            vertices[i].y == v.y &&
-            vertices[i].z == v.z
-        ) return i;
+        vPtr->label = labelSS.str();
     }
-    return -1;
+    return vPtr;
 }
 
-Vert VertTable::getVert(int ndx)
+void VertTable::coutAll()
 {
-    return vertices[ndx];
-}
-
-int VertTable::getActiveSize()
-{
-    return currPos;
-}
-/* Private methods implementation */
-
-void VertTable::expandCapacity()
-{
-    Vert *oldVerts = vertices;
-    vertices = new Vert[size*=2];
-    for (int i = 0; i < currPos; i++) {
-        vertices[i] = oldVerts[i];
+    std::cout<<"VERTICES:"<<std::endl;
+    for (int i = 0; i < currNdx; i++) {
+        Vert v = verts[i];
+        std::cout<<v.label<<":("<<v.x<<","<<v.y<<","<<v.z<<")"<<std::endl;
     }
-    delete[] oldVerts;
+    std::cout<<std::endl;
+}
+
+Vert *VertTable::getPtr(GLfloat x, GLfloat y, GLfloat z)
+{
+    for (int i = 0; i < currNdx; i++) {
+        Vert v = verts[i];
+        if (v.x == x && v.y == y && v.z == z) return &verts[i];
+    }
+    return NULL;
 }

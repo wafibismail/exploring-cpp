@@ -7,10 +7,12 @@
 #include <GL/glut.h>
 #endif
 
-struct Vert { GLfloat x, y, z; };
+#include <string>
 
-struct Edge { Vert *v1, *v2; };
+struct Vert { GLfloat x, y, z; std::string label; };
 
-struct Face { Edge *edges; };
+struct Edge { Vert *v0, *v1; std::string label; };
+
+struct Face { Edge **edges; int nEdges; std::string label; };
 
 #endif // TABLESTRUCTS_HPP_INCLUDED

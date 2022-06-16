@@ -7,23 +7,34 @@
  * dimensional object.
  */
 
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-
-#include "verttable.hpp"
-#include <iostream>
+#include "facetable.hpp"
 
 int main(int argc, char** argv) {
-    VertTable *vt = new VertTable;
-    Vert v; v.x = 1, v.y = 2, v.z = 3;
-    int oh;
-    oh = vt->addVert(v);
-    vt->addCoords(2.0, 2.0, 2.0);
-    vt->addCoords(2.2, 2.2, 2.2);
-    std::cout<<vt->getVert(oh).y;
-    delete vt;
+    VertTable *vp = new VertTable();
+    Vert *v1 = vp->add(0,0,0);
+    Vert *v2 = vp->add(1,0,0);
+
+    EdgeTable *ep = new EdgeTable(vp);
+    Edge *e1 = ep->add(v1, v2);
+    Edge *e2 = ep->add(v2, vp->add(1,0,1));
+    Edge *e3 = ep->add(vp->add(1,0,1), vp->add(0,0,0));
+
+    FaceTable *fp = new FaceTable(ep);
+    int f1Size = 3;
+    Edge **f1Edges = new Edge*[f1Size];
+    f1Edges[0] = e1;
+    f1Edges[1] = e2;
+    f1Edges[2] = e3;
+    fp->add(f1Edges,f1Size);
+
+
+    vp->coutAll();
+    ep->coutAll();
+    fp->coutAll();
+
+    delete[] f1Edges;
+    delete fp;
+    delete ep;
+    delete vp;
     return 0;
 }
